@@ -25,7 +25,7 @@ import java.util.Set;
 /**
  * це реалізація патерну UnitOfWork, та також фабрики з сінглтоном.
  */
-public class JsonRepositoryFactory extends RepositoryFactory {
+public final class JsonRepositoryFactory extends RepositoryFactory {
 
     private final Gson gson;
     private CommentJsonRepositoryImpl commentJsonRepositoryImpl;

@@ -1,0 +1,5 @@
+
+u
+java:S3008"SRename this field "INSTANCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï£ıÂÿÿÿÿÿ8êâÏ°Ô1
+y
+java:S3077"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(ï£ıÂÿÿÿÿÿ8ëâÏ°Ô1

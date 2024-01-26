@@ -1,15 +1,13 @@
 
-W	java:S125"<This block of commented-out lines of code should be removed.(û«”8¹Šî†Ô1
-]	java:S125"<This block of commented-out lines of code should be removed.(ÌğßØùÿÿÿÿ8æ™Ê‚Ô1
+W	java:S125"<This block of commented-out lines of code should be removed.(û«”8¹Šî†Ô1
+]	java:S125"<This block of commented-out lines of code should be removed.(ÌğßØùÿÿÿÿ8æ™Ê‚Ô1
 T
-java:S1135"2Complete the task associated to this TODO comment.(ÌğßØùÿÿÿÿ8æ™Ê‚Ô1
-]	java:S125"<This block of commented-out lines of code should be removed.(‚ÍÁÃıÿÿÿÿ8ç™Ê‚Ô1
+java:S1135"2Complete the task associated to this TODO comment.(ÌğßØùÿÿÿÿ8æ™Ê‚Ô1
+]	java:S125 "<This block of commented-out lines of code should be removed.(‚ÍÁÃıÿÿÿÿ8ç™Ê‚Ô1
 T
-java:S1135"2Complete the task associated to this TODO comment.(‚ÍÁÃıÿÿÿÿ8ç™Ê‚Ô1
-X	java:S125!"<This block of commented-out lines of code should be removed.(„Û«Ù8ç™Ê‚Ô1
+java:S1135 "2Complete the task associated to this TODO comment.(‚ÍÁÃıÿÿÿÿ8ç™Ê‚Ô1
+X	java:S125#"<This block of commented-out lines of code should be removed.(„Û«Ù8ç™Ê‚Ô1
 O
-java:S1135!"2Complete the task associated to this TODO comment.(„Û«Ù8ç™Ê‚Ô1
+java:S1135#"2Complete the task associated to this TODO comment.(„Û«Ù8ç™Ê‚Ô1
 _
-java:S6353Q"CUse concise character class syntax '\\w' instead of '[a-zA-Z0-9_]'.(¤…8ğ™Ê‚Ô1
-X
-java:S1144e"6Remove this unused private "validatedPassword" method.(û¯¤¬ıÿÿÿÿ8ÅŠî†Ô1
+java:S6353S"CUse concise character class syntax '\\w' instead of '[a-zA-Z0-9_]'.(¤…8ğ™Ê‚Ô1

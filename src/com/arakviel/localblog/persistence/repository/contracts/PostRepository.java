@@ -6,9 +6,9 @@ import java.util.Set;
 
 public interface PostRepository extends Repository<Post> {
 
-    Set<Post> getAllPublished();
+    Set<Post> findAllPublished();
 
-    Set<Post> getAllByTitle(String title);
+    Set<Post> findAllByTitle(String title);
 
-    Set<Post> getAllByDescription(String description);
+    Set<Post> findAllByDescription(String description);
 }

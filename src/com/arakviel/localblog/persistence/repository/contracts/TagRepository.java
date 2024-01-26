@@ -7,5 +7,5 @@ import java.util.Set;
 
 public interface TagRepository extends Repository<Tag> {
 
-    Set<Tag> getAllByPost(Post post);
+    Set<Tag> findAllByPost(Post post);
 }

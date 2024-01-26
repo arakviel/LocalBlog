@@ -25,7 +25,7 @@ class GenericJsonRepository<E extends Entity> implements Repository<E> {
     private final Path path;
     private final Type collectionType;
 
-    public GenericJsonRepository(Gson gson, Path path, Type collectionType) {
+    GenericJsonRepository(Gson gson, Path path, Type collectionType) {
         this.gson = gson;
         this.path = path;
         this.collectionType = collectionType;

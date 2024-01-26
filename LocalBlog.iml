@@ -13,6 +13,7 @@
     <orderEntry type="library" name="gson-2.10.1" level="project" />
     <orderEntry type="library" name="bcrypt-0.3" level="project" />
     <orderEntry type="library" name="jakarta.activation-2.0.1" level="project" />
+    <orderEntry type="library" name="jline-2.14.6" level="project" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="98a57ca4-0367-43f9-8f43-3e1cf08ca93a" />

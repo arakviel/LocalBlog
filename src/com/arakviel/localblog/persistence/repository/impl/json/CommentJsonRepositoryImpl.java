@@ -8,11 +8,11 @@ import com.google.gson.reflect.TypeToken;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-class CommentJsonRepositoryImpl
+final class CommentJsonRepositoryImpl
         extends GenericJsonRepository<Comment>
         implements CommentRepository {
 
-    public CommentJsonRepositoryImpl(Gson gson) {
+    CommentJsonRepositoryImpl(Gson gson) {
         super(gson, JsonPathFactory.COMMENTS.getPath(), TypeToken
                 .getParameterized(Set.class, Comment.class)
                 .getType());

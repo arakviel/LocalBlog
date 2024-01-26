@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jline-2.14.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/jline-2.14.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jansi-1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/consoleui-0.0.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

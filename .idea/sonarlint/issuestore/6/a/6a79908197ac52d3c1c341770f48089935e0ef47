@@ -1,6 +1,8 @@
 
 M
 java:S2160
-"+Override the "equals" method in this class.(Ø¤§˜ÿÿÿÿÿ8³ÇêİÓ1
+"+Override the "equals" method in this class.(¿¶Ôûÿÿÿÿ8³ÇêİÓ1
+v
+java:S1210B"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(Œ•’€8¬¨Ô¯Ô1
 T
 java:S1135"2Complete the task associated to this TODO comment.(ŞÂúÿÿÿÿ8´ÇêİÓ1

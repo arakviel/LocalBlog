@@ -7,11 +7,11 @@ import com.google.gson.reflect.TypeToken;
 import java.util.Optional;
 import java.util.Set;
 
-public class UserJsonRepositoryImpl
+final class UserJsonRepositoryImpl
         extends GenericJsonRepository<User>
         implements UserRepository {
 
-    public UserJsonRepositoryImpl(Gson gson) {
+    UserJsonRepositoryImpl(Gson gson) {
         super(gson, JsonPathFactory.USERS.getPath(), TypeToken
                 .getParameterized(Set.class, User.class)
                 .getType());

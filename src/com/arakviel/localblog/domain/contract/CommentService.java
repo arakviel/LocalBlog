@@ -6,5 +6,5 @@ import java.util.Set;
 
 public interface CommentService extends Service<Comment> {
 
-    Set<Comment> findAllByAuthor(String author);
+    Set<Comment> getAllByAuthor(String author);
 }

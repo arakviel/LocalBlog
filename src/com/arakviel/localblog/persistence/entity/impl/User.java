@@ -9,7 +9,9 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-public class User extends Entity {
+public class User
+        extends Entity
+        implements Comparable<User> {
 
     private final String password;
     private final LocalDate birthday;
@@ -98,30 +100,6 @@ public class User extends Entity {
         this.avatar = avatar;
     }
 
-    private String validatedPassword(String password) {
-        final String templateName = "паролю";
-
-        if (password.isBlank()) {
-            errors.add(ErrorTemplates.REQUIRED.getTemplate().formatted(templateName));
-        }
-        if (password.length() < 8) {
-            errors.add(ErrorTemplates.MIN_LENGTH.getTemplate().formatted(templateName, 4));
-        }
-        if (password.length() > 32) {
-            errors.add(ErrorTemplates.MAX_LENGTH.getTemplate().formatted(templateName, 32));
-        }
-        var pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$");
-        if (!pattern.matcher(password).matches()) {
-            errors.add(ErrorTemplates.PASSWORD.getTemplate().formatted(templateName, 24));
-        }
-
-        if (!this.errors.isEmpty()) {
-            throw new EntityArgumentException(errors);
-        }
-
-        return password;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -149,6 +127,11 @@ public class User extends Entity {
                 ", avatar='" + avatar + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return this.username.compareTo(o.username);
     }
 
     public enum Role {

@@ -7,7 +7,7 @@ import java.util.UUID;
 /**
  * TODO: зробити валідацію по аналогії з User
  */
-public class Like extends Entity {
+public class Like extends Entity implements Comparable<Like> {
 
     private final LocalDateTime createdAt;
     private Post post;
@@ -60,5 +60,10 @@ public class Like extends Entity {
                 ", updatedAt=" + updatedAt +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Like o) {
+        return this.createdAt.compareTo(o.createdAt);
     }
 }

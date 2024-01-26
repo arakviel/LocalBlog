@@ -9,11 +9,11 @@ import com.google.gson.reflect.TypeToken;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-class LikeJsonRepositoryImpl
+final class LikeJsonRepositoryImpl
         extends GenericJsonRepository<Like>
         implements LikeRepository {
 
-    public LikeJsonRepositoryImpl(Gson gson) {
+    LikeJsonRepositoryImpl(Gson gson) {
         super(gson, JsonPathFactory.LIKES.getPath(), TypeToken
                 .getParameterized(Set.class, Like.class)
                 .getType());

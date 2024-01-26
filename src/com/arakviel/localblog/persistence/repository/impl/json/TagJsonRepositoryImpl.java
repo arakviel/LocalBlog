@@ -8,18 +8,18 @@ import com.google.gson.reflect.TypeToken;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class TagJsonRepositoryImpl
+final class TagJsonRepositoryImpl
         extends GenericJsonRepository<Tag>
         implements TagRepository {
 
-    public TagJsonRepositoryImpl(Gson gson) {
+    TagJsonRepositoryImpl(Gson gson) {
         super(gson, JsonPathFactory.TAGS.getPath(), TypeToken
                 .getParameterized(Set.class, Tag.class)
                 .getType());
     }
 
     @Override
-    public Set<Tag> getAllByPost(Post post) {
+    public Set<Tag> findAllByPost(Post post) {
         return entities.stream()
                 .filter(t -> post.getTags().contains(t))
                 .collect(Collectors.toSet());
