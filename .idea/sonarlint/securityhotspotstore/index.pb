@@ -109,11 +109,13 @@ e
 5src/com/arakviel/localblog/domain/impl/ImageUtil.java,a\0\a0da487e2158975c55aecc0df109e7f3e7099539
 W
 'src/com/arakviel/localblog/Startup.java,3\b\3b02430e4b55318f56c0bf3c16870ae2917f6980
-e
-5src/com/arakviel/localblog/appui/partial/Partial.java,6\d\6d882f3c56dfcbd6af7699a4b807cff0161ab905
 ^
 .src/com/arakviel/localblog/appui/AuthView.java,0\b\0bc75421c68724982b6eaae25d470dc79f4e235b
 `
 0src/com/arakviel/localblog/appui/Renderable.java,1\a\1a8e519e84a8237416896a4cfcb9018cf8bfa005
-^
-.src/com/arakviel/localblog/appui/Renderer.java,1\9\19eeb3ab0497faf79a9814bf2934be7ff29c8c16
+i
+9src/com/arakviel/localblog/domain/impl/ReportService.java,c\d\cd7f282e1d13789a93f4528e4ee296b753e17cd6
+m
+=src/com/arakviel/localblog/domain/impl/ReportServiceImpl.java,b\4\b485e8279df878019a60decc945fdb6f52d27135
+a
+1src/com/arakviel/localblog/domain/Reportable.java,6\8\68b591275094e358f0bab654de7cde458c6fe23c

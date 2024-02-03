@@ -156,10 +156,18 @@ public class User
             this.permissions = permissions;
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public Map<EntityName, Permission> getPermissions() {
+            return permissions;
+        }
+
         public enum EntityName {COMMENT, LIKE, POST, TAG, USER}
 
-        private record Permission(boolean canAdd, boolean canEdit, boolean canDelete,
-                                  boolean canRead) {
+        public record Permission(boolean canAdd, boolean canEdit, boolean canDelete,
+                                 boolean canRead) {
 
         }
     }

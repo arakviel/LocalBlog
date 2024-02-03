@@ -1,10 +1,11 @@
 package com.arakviel.localblog.domain.contract;
 
+import com.arakviel.localblog.domain.Reportable;
 import com.arakviel.localblog.domain.Service;
 import com.arakviel.localblog.domain.dto.UserAddDto;
 import com.arakviel.localblog.persistence.entity.impl.User;
 
-public interface UserService extends Service<User> {
+public interface UserService extends Service<User>, Reportable<User> {
 
     User getByUsername(String username);
 

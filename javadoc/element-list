@@ -1,0 +1,13 @@
+com.arakviel.localblog
+com.arakviel.localblog.appui
+com.arakviel.localblog.domain
+com.arakviel.localblog.domain.contract
+com.arakviel.localblog.domain.dto
+com.arakviel.localblog.domain.exception
+com.arakviel.localblog.domain.impl
+com.arakviel.localblog.persistence.entity
+com.arakviel.localblog.persistence.entity.impl
+com.arakviel.localblog.persistence.exception
+com.arakviel.localblog.persistence.repository
+com.arakviel.localblog.persistence.repository.contracts
+com.arakviel.localblog.persistence.repository.impl.json
