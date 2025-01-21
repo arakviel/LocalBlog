@@ -28,11 +28,11 @@ import java.util.Set;
 public final class JsonRepositoryFactory extends RepositoryFactory {
 
     private final Gson gson;
-    private CommentJsonRepositoryImpl commentJsonRepositoryImpl;
-    private LikeJsonRepositoryImpl likeJsonRepositoryImpl;
-    private PostJsonRepositoryImpl postJsonRepositoryImpl;
-    private TagJsonRepositoryImpl tagJsonRepositoryImpl;
-    private UserJsonRepositoryImpl userJsonRepositoryImpl;
+    private final CommentJsonRepositoryImpl commentJsonRepositoryImpl;
+    private final LikeJsonRepositoryImpl likeJsonRepositoryImpl;
+    private final PostJsonRepositoryImpl postJsonRepositoryImpl;
+    private final TagJsonRepositoryImpl tagJsonRepositoryImpl;
+    private final UserJsonRepositoryImpl userJsonRepositoryImpl;
 
     private JsonRepositoryFactory() {
         // Адаптер для типу даних LocalDateTime при серіалізації/десеріалізації

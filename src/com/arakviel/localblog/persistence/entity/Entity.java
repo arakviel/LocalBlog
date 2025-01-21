@@ -21,7 +21,7 @@ public abstract class Entity {
     }
 
     public boolean isValid() {
-        return errors.isEmpty();
+        return !errors.isEmpty();
     }
 
     public Set<String> getErrors() {

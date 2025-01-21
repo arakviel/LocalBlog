@@ -14,8 +14,7 @@ public class Comment extends Entity implements Comparable<Comment> {
     private User author;
     private LocalDateTime updatedAt;
 
-    public Comment(UUID id, LocalDateTime createdAt, String body, User author,
-            LocalDateTime updatedAt) {
+    public Comment(UUID id, LocalDateTime createdAt, String body, User author, LocalDateTime updatedAt) {
         super(id);
         this.createdAt = createdAt;
         this.body = body;

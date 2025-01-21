@@ -3,15 +3,14 @@ package com.arakviel.localblog.persistence.entity.impl;
 import com.arakviel.localblog.persistence.entity.Entity;
 import com.arakviel.localblog.persistence.entity.ErrorTemplates;
 import com.arakviel.localblog.persistence.exception.EntityArgumentException;
+
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-public class User
-        extends Entity
-        implements Comparable<User> {
+public class User extends Entity implements Comparable<User> {
 
     private final String password;
     private final LocalDate birthday;
@@ -20,21 +19,19 @@ public class User
     private String username;
     private String avatar;
 
-
     public User(UUID id, String password, String email, LocalDate birthday, String username,
-            String avatar, Role role) {
+                String avatar, Role role) {
         super(id);
-        //this.password = validatedPassword(password);
-
-        this.password = password;
-        // TODO: setEmail(email);
-        this.email = email;
-        // TODO: validatedBirthday(birthday);
-        this.birthday = birthday;
+        this.password = validatedPassword(password);
+        setEmail(email);
+        this.birthday = validatedBirthday(birthday);
         setUsername(username);
-        // TODO: setAvatar(avatar);
-        this.avatar = avatar;
+        setAvatar(avatar);
         this.role = role;
+
+        if (this.isValid()) {
+            throw new EntityArgumentException(errors);
+        }
     }
 
     public String getPassword() {
@@ -57,17 +54,6 @@ public class User
         return username;
     }
 
-    /**
-     * Setter method for the username with validation.
-     * <p>
-     * This method sets the username with the specified validation criteria: - Must not be empty. -
-     * Must be longer than 4 characters. - Must be shorter than 24 characters. - Must consist only
-     * of Latin letters.
-     *
-     * @param username the username to be set, must meet the validation criteria
-     * @throws IllegalArgumentException if the provided username does not meet the validation
-     *                                  criteria
-     */
     public void setUsername(String username) {
         final String templateName = "логіну";
 
@@ -82,11 +68,7 @@ public class User
         }
         var pattern = Pattern.compile("^[a-zA-Z0-9_]+$");
         if (!pattern.matcher(username).matches()) {
-            errors.add(ErrorTemplates.ONLY_LATIN.getTemplate().formatted(templateName, 24));
-        }
-
-        if (!this.errors.isEmpty()) {
-            throw new EntityArgumentException(errors);
+            errors.add(ErrorTemplates.ONLY_LATIN.getTemplate().formatted(templateName));
         }
 
         this.username = username;
@@ -97,24 +79,59 @@ public class User
     }
 
     public void setAvatar(String avatar) {
+        final String templateName = "аватара";
+
+        if (avatar.isBlank()) {
+            errors.add(ErrorTemplates.REQUIRED.getTemplate().formatted(templateName));
+        }
+        if (avatar.length() > 200) {
+            errors.add(ErrorTemplates.MAX_LENGTH.getTemplate().formatted(templateName, 200));
+        }
+        var pattern = Pattern.compile("^(https?://).+\\.(jpg|jpeg|png|gif)$");
+        if (!pattern.matcher(avatar).matches()) {
+            errors.add("Поле %s має бути валідним URL зображення.".formatted(templateName));
+        }
+
         this.avatar = avatar;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+    public void setEmail(String email) {
+        final String templateName = "електронної пошти";
+
+        if (email.isBlank()) {
+            errors.add(ErrorTemplates.REQUIRED.getTemplate().formatted(templateName));
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
+        var pattern = Pattern.compile("^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
+        if (!pattern.matcher(email).matches()) {
+            errors.add("Поле %s має бути валідною електронною поштою.".formatted(templateName));
         }
-        User user = (User) o;
-        return Objects.equals(email, user.email);
+
+        this.email = email;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(email);
+    private LocalDate validatedBirthday(LocalDate birthday) {
+        if (birthday == null || birthday.isAfter(LocalDate.now())) {
+            errors.add("Дата народження не може бути в майбутньому або пустою.");
+        }
+
+        return birthday;
+    }
+
+    private String validatedPassword(String password) {
+        final String templateName = "пароля";
+
+        if (password.isBlank()) {
+            errors.add(ErrorTemplates.REQUIRED.getTemplate().formatted(templateName));
+        }
+        if (password.length() < 8) {
+            errors.add(ErrorTemplates.MIN_LENGTH.getTemplate().formatted(templateName, 8));
+        }
+        var pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$");
+        if (!pattern.matcher(password).matches()) {
+            errors.add(ErrorTemplates.PASSWORD.getTemplate().formatted(templateName));
+        }
+
+        return password;
     }
 
     @Override
@@ -168,8 +185,6 @@ public class User
 
         public record Permission(boolean canAdd, boolean canEdit, boolean canDelete,
                                  boolean canRead) {
-
         }
     }
-
 }

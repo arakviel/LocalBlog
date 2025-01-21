@@ -29,7 +29,7 @@ class GenericJsonRepository<E extends Entity> implements Repository<E> {
         this.gson = gson;
         this.path = path;
         this.collectionType = collectionType;
-        entities = new HashSet<>(loadAll());
+        entities = loadAll();
     }
 
     @Override

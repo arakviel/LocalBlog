@@ -1,8 +1,13 @@
 package com.arakviel.localblog;
 
+import com.arakviel.localblog.persistence.entity.impl.Tag;
 import com.arakviel.localblog.persistence.entity.impl.User;
 import com.arakviel.localblog.persistence.entity.impl.User.Role;
+import com.arakviel.localblog.persistence.exception.EntityArgumentException;
 import com.github.javafaker.Faker;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -19,7 +24,22 @@ public class Main {
 
     public static void main(String[] args) {
         //Startup.init();
-        run();
+        //run();
+
+
+        try {
+            User user = new User(
+                    UUID.randomUUID(),
+                    "secure assword123",
+                    "testexample.com",
+                    LocalDate.of(2026, 1, 1),
+                    "укр",
+                    "example.com/avatar.png",
+                    Role.GENERAL
+            );
+        } catch (EntityArgumentException e) {
+            e.getErrors().forEach(System.err::println);
+        }
     }
 
     public static Set<User> generateUsers(int count) {
